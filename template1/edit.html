@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel">
+    <h2>Uredi zapisek</h2>
+    <form method="post" class="form">
+        <input name="title" value="{{ note.title }}" required>
+        <textarea name="content" required>{{ note.content }}</textarea>
+        <button type="submit">Shrani</button>
+        <a href="{{ url_for('index') }}">Nazaj</a>
+    </form>
+</section>
+{% endblock %}

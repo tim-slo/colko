@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel">
+    <form action="{{ url_for('add_note') }}" method="post" class="form">
+        <input name="title" placeholder="Naslov zapiska" required>
+        <textarea name="content" placeholder="Vsebina zapiska" required></textarea>
+        <button type="submit">Dodaj zapisek</button>
+    </form>
+</section>
+
+<section class="toolbar">
+    <form method="get" class="search">
+        <input name="search" value="{{ search }}" placeholder="Išči po zapiskih">
+        <button type="submit">Išči</button>
+        <a href="{{ url_for('index') }}">Počisti</a>
+    </form>
+</section>
+
+<section class="grid">
+    {% for note in notes %}
+        <article class="card">
+            <h2>{{ note.title }}</h2>
+            <p class="note-preview">{{ note.content }}</p>
+            <small>{{ note.created_at }}</small>
+            <div class="actions">
+                <button type="button" data-preview="{{ note.id }}">Predogled</button>
+                <a href="{{ url_for('edit_note', note_id=note.id) }}">Uredi</a>
+                <form action="{{ url_for('delete_note', note_id=note.id) }}" method="post">
+                    <button type="submit" class="danger">Izbriši</button>
+                </form>
+            </div>
+        </article>
+    {% else %}
+        <p class="empty">Ni še zapiskov.</p>
+    {% endfor %}
+</section>
+
+<dialog id="previewDialog">
+    <h2 id="previewTitle"></h2>
+    <p id="previewContent"></p>
+    <button type="button" onclick="previewDialog.close()">Zapri</button>
+</dialog>
+{% endblock %}
