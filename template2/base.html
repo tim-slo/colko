@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="sl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mini social</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="nav">
+        <a href="{{ url_for('index') }}">Mini social</a>
+        <span></span>
+        {% if current_user %}
+            <a href="{{ url_for('profile', username=current_user.username) }}">{{ current_user.username }}</a>
+            <a href="{{ url_for('logout') }}">Odjava</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Prijava</a>
+            <a href="{{ url_for('register') }}">Registracija</a>
+        {% endif %}
+    </nav>
+    <main class="container">
+        {% for message in get_flashed_messages() %}
+            <p class="flash">{{ message }}</p>
+        {% endfor %}
+        {% block content %}{% endblock %}
+    </main>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

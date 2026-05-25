@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+
+{% block content %}
+<section class="panel">
+    <h1>Profil @{{ profile_user.username }}</h1>
+    <p>Objave tega uporabnika.</p>
+</section>
+
+<section class="feed">
+    {% for post in posts %}
+        <article class="post">
+            <header>
+                <strong>@{{ post.username }}</strong>
+                <small>{{ post.created_at }}</small>
+            </header>
+            <p>{{ post.text }}</p>
+            {% if post.image_url %}
+                <img src="{{ post.image_url }}" alt="Slika objave">
+            {% endif %}
+            <button type="button" data-like="{{ post.id }}">
+                Všeč mi je (<span>{{ post.like_count }}</span>)
+            </button>
+        </article>
+    {% else %}
+        <p class="empty">Ta uporabnik še nima objav.</p>
+    {% endfor %}
+</section>
+{% endblock %}

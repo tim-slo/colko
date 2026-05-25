@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if current_user %}
+<section class="panel">
+    <h1>Nova objava</h1>
+    <form action="{{ url_for('create_post') }}" method="post" class="form">
+        <textarea name="text" placeholder="Kaj želiš objaviti?" required></textarea>
+        <input name="image_url" placeholder="URL slike (neobvezno)">
+        <button type="submit">Objavi</button>
+    </form>
+</section>
+{% else %}
+<section class="panel">
+    <h1>Dobrodošel</h1>
+    <p>Za objavljanje in všečkanje se prijavi ali registriraj.</p>
+</section>
+{% endif %}
+
+<section class="feed">
+    {% for post in posts %}
+        <article class="post">
+            <header>
+                <a href="{{ url_for('profile', username=post.username) }}">@{{ post.username }}</a>
+                <small>{{ post.created_at }}</small>
+            </header>
+            <p>{{ post.text }}</p>
+            {% if post.image_url %}
+                <img src="{{ post.image_url }}" alt="Slika objave">
+            {% endif %}
+            <button type="button" data-like="{{ post.id }}">
+                Všeč mi je (<span>{{ post.like_count }}</span>)
+            </button>
+        </article>
+    {% else %}
+        <p class="empty">Ni še objav.</p>
+    {% endfor %}
+</section>
+{% endblock %}
