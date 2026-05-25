@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel narrow">
+    <h1>Prijava</h1>
+    <form method="post" class="form auth-form">
+        <input name="username" placeholder="Uporabniško ime" required>
+        <input name="password" type="password" placeholder="Geslo" required>
+        <button type="submit">Prijava</button>
+    </form>
+</section>
+{% endblock %}

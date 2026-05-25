@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel">
+    <h1>Moj planer</h1>
+    <p id="stats">Nalagam statistiko ...</p>
+    <form action="{{ url_for('add_task') }}" method="post" class="form">
+        <input name="title" placeholder="Nova naloga" required>
+        <input name="category" placeholder="Kategorija, npr. šola">
+        <button type="submit">Dodaj nalogo</button>
+    </form>
+</section>
+
+<section class="filters">
+    <a href="{{ url_for('index') }}" class="{{ 'active' if selected_category == 'vse' else '' }}">Vse</a>
+    {% for category in categories %}
+        <a href="{{ url_for('index', category=category.category) }}" class="{{ 'active' if selected_category == category.category else '' }}">
+            {{ category.category }}
+        </a>
+    {% endfor %}
+</section>
+
+<section class="tasks">
+    {% for task in tasks %}
+        <article class="task {{ 'done' if task.done else '' }}">
+            <label>
+                <input type="checkbox" data-task="{{ task.id }}" {% if task.done %}checked{% endif %}>
+                <span>{{ task.title }}</span>
+            </label>
+            <small>{{ task.category }}</small>
+            <form action="{{ url_for('delete_task', task_id=task.id) }}" method="post">
+                <button type="submit">Izbriši</button>
+            </form>
+        </article>
+    {% else %}
+        <p class="empty">Ni še nalog.</p>
+    {% endfor %}
+</section>
+{% endblock %}
