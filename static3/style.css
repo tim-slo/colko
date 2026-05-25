@@ -4,9 +4,9 @@
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f7f3ea;
-    color: #1f2937;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: #eef1e8;
+    color: #263326;
 }
 
 .nav {
@@ -14,8 +14,8 @@ body {
     grid-template-columns: auto 1fr auto auto;
     gap: 16px;
     align-items: center;
-    padding: 14px max(24px, 6vw);
-    background: #2f3a2f;
+    padding: 13px max(20px, 6vw);
+    background: #3d4b39;
     color: white;
 }
 
@@ -25,19 +25,19 @@ body {
 }
 
 .container {
-    width: min(820px, 92vw);
-    margin: 28px auto;
+    width: min(800px, 92vw);
+    margin: 24px auto;
 }
 
 .panel,
 .task,
 .flash,
 .empty {
-    background: white;
-    border: 1px solid #ded6c8;
-    border-radius: 8px;
-    padding: 18px;
-    margin-bottom: 14px;
+    background: #fbfff7;
+    border: 1px solid #b8c5ab;
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 12px;
 }
 
 .narrow {
@@ -48,41 +48,46 @@ body {
 .form {
     display: grid;
     grid-template-columns: 1fr 180px auto;
-    gap: 10px;
+    gap: 8px;
+}
+
+.auth-form {
+    grid-template-columns: 1fr;
 }
 
 input,
 button {
     font: inherit;
-    padding: 10px 12px;
-    border-radius: 6px;
-    border: 1px solid #c9c0b2;
+    padding: 9px 10px;
+    border-radius: 3px;
+    border: 1px solid #9aac8b;
 }
 
 button {
-    background: #e7f0d8;
-    color: #365314;
+    background: #d8e8c5;
+    color: #263326;
+    border-color: #8ba276;
     cursor: pointer;
 }
 
 .filters {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 7px;
     margin-bottom: 16px;
 }
 
 .filters a {
-    padding: 8px 12px;
-    border-radius: 999px;
-    background: white;
-    color: #365314;
+    padding: 7px 11px;
+    border-radius: 4px;
+    background: #fbfff7;
+    color: #263326;
     text-decoration: none;
-    border: 1px solid #ded6c8;
+    border: 1px solid #b8c5ab;
 }
 
 .filters .active {
-    background: #365314;
+    background: #3d4b39;
     color: white;
 }
 
@@ -91,6 +96,7 @@ button {
     grid-template-columns: 1fr auto auto;
     gap: 12px;
     align-items: center;
+    border-left: 5px solid #89a36f;
 }
 
 .task.done span {
@@ -99,7 +105,7 @@ button {
 }
 
 .flash {
-    background: #fef3c7;
+    background: #fff2bd;
 }
 
 @media (max-width: 680px) {

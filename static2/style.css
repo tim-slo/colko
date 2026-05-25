@@ -5,8 +5,8 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #eef2f7;
-    color: #111827;
+    background: #ececec;
+    color: #202124;
 }
 
 .nav {
@@ -14,8 +14,9 @@ body {
     grid-template-columns: auto 1fr auto auto;
     gap: 16px;
     align-items: center;
-    padding: 14px max(24px, 6vw);
-    background: #111827;
+    padding: 12px max(18px, 6vw);
+    background: #2b2b2b;
+    border-bottom: 4px solid #ffcc33;
 }
 
 .nav a {
@@ -24,19 +25,19 @@ body {
 }
 
 .container {
-    width: min(760px, 92vw);
-    margin: 28px auto;
+    width: min(720px, 92vw);
+    margin: 22px auto;
 }
 
 .panel,
 .post,
 .flash,
 .empty {
-    background: white;
-    border: 1px solid #d1d9e6;
-    border-radius: 8px;
-    padding: 18px;
-    margin-bottom: 16px;
+    background: #ffffff;
+    border: 1px solid #bdbdbd;
+    border-radius: 3px;
+    padding: 16px;
+    margin-bottom: 14px;
 }
 
 .narrow {
@@ -44,18 +45,22 @@ body {
     margin-inline: auto;
 }
 
+.panel h1 {
+    margin-top: 0;
+}
+
 .form {
     display: grid;
-    gap: 12px;
+    gap: 10px;
 }
 
 input,
 textarea,
 button {
     font: inherit;
-    padding: 10px 12px;
-    border-radius: 6px;
-    border: 1px solid #c8d1dc;
+    padding: 9px 10px;
+    border-radius: 2px;
+    border: 1px solid #a9a9a9;
 }
 
 textarea {
@@ -64,8 +69,9 @@ textarea {
 }
 
 button {
-    background: #dbeafe;
-    color: #1d4ed8;
+    background: #ffcc33;
+    color: #202124;
+    border-color: #c99a00;
     cursor: pointer;
 }
 
@@ -73,17 +79,19 @@ button {
     display: flex;
     justify-content: space-between;
     gap: 12px;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 8px;
 }
 
 .post img {
     width: 100%;
     max-height: 360px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 3px;
     margin: 10px 0;
 }
 
 .flash {
-    border-color: #facc15;
-    background: #fef9c3;
+    border-color: #c99a00;
+    background: #fff3b0;
 }
